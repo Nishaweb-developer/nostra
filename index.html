@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Floating Message Bar</title>
+</head>
+<style>
+    * {box-sizing: border-box}
+.mySlides1, .mySlides2 {display: none}
+img {vertical-align: middle;}
+
+/* Slideshow container */
+.slideshow-container {
+  width: 80%;
+ 
+  position: relative;
+  top:50px;
+  margin: auto;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: transform 0.5s ease-in-out;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  background-color: lightgreen;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a grey background color */
+.prev:hover, .next:hover {
+  background-color: #f1f1f1;
+  color: black;
+}
+.slideshow-container img{
+    height:400px;
+}
+</style>
+<body>
+
+    
+
+
+<div class="slideshow-container">
+   
+  <div class="mySlides1">
+    <img src="images/hero1.jpg" style="width:100%; opacity:50%; ">
+  </div>
+
+  <div class="mySlides1">
+    <img src="images/hero2.jpg" style="width:100%; opacity:50%;">
+  </div>
+
+  <div class="mySlides1">
+    <img src="images/hero3.jpg" style="width:100%; opacity:50%;">
+  </div>
+
+  <a class="prev" onclick="plusSlides(-1, 0)">&#10094;</a>
+  <a class="next" onclick="plusSlides(1, 0)">&#10095;</a>
+</div>
+
+
+</body>
+
+    <script>
+        function MessageBar() {
+            // CSS styling:
+            var css = function(el, s) {
+                for (var i in s) {
+                    el.style[i] = s[i];
+                }
+                return el;
+            },
+            // Create the message bar:
+            bar = css(document.createElement('div'), {
+                top: '0px',
+                right: '20px',
+                position: 'fixed',
+                background: 'black',
+                padding: '15px',
+                textAlign: 'center',
+                boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)',
+                borderRadius: '8px',
+                width: '90%',
+                zIndex: '1000'
+            }),
+            // Create the close button:
+            closeButton = css(document.createElement('span'), {
+                position: 'absolute',
+                top: '0px',
+                right: '150px',
+                cursor: 'pointer',
+                fontWeight: 'bold',
+                color:'white',
+                fontSize: '30px'
+            });
+
+            // Set the close button text to "×" (multiplication symbol):
+            closeButton.innerHTML = '&times;';
+            closeButton.onclick = function() {
+                document.body.removeChild(bar);
+            };
+
+            // Inject the bar and close button:
+            bar.appendChild(closeButton);
+            document.body.appendChild(bar);
+
+            // Provide a way to set the message:
+            this.setMessage = function(message) {
+                var messageDiv = css(document.createElement('div'), {
+                    color: 'white'
+                });
+                messageDiv.appendChild(document.createTextNode(message));
+                bar.appendChild(messageDiv);
+            };
+        }
+
+        // Create an instance of the message bar and display a message
+        var myMessageBar = new MessageBar();
+        myMessageBar.setMessage('Sign Up and Get 20% OFF for your first Order');
+
+
+        let slideIndex = [1,1];
+let slideId = ["mySlides1", "mySlides2"]
+showSlides(1, 0);
+showSlides(1, 1);
+
+function plusSlides(n, no) {
+  showSlides(slideIndex[no] += n, no);
+}
+
+function showSlides(n, no) {
+  let i;
+  let x = document.getElementsByClassName(slideId[no]);
+  if (n > x.length) {slideIndex[no] = 1}    
+  if (n < 1) {slideIndex[no] = x.length}
+  for (i = 0; i < x.length; i++) {
+     x[i].style.display = "none";  
+  }
+  x[slideIndex[no]-1].style.display = "block";  
+}
+    </script>
+
+</html>
+
+
