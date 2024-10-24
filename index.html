@@ -3,9 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Ultra&display=swap" rel="stylesheet">
     <title>Floating Message Bar</title>
 </head>
 <style>
+    body{
+        font-family: "Oswald", sans-serif;
+
+    }
+    *{
+      margin:0;
+      padding:0;
+    }
     * {box-sizing: border-box}
 .mySlides1, .mySlides2 {display: none}
 img {vertical-align: middle;}
@@ -13,9 +25,8 @@ img {vertical-align: middle;}
 /* Slideshow container */
 .slideshow-container {
   width: 80%;
- 
   position: relative;
-  top:50px;
+ 
   margin: auto;
 }
 
@@ -23,17 +34,18 @@ img {vertical-align: middle;}
 .prev, .next {
   cursor: pointer;
   position: absolute;
-  top: 50%;
+  top: 30%;
   width: auto;
   padding: 16px;
   margin-top: -22px;
   color: white;
   font-weight: bold;
-  font-size: 18px;
+  font-size: 80px;
   transition: transform 0.5s ease-in-out;
   border-radius: 0 3px 3px 0;
   user-select: none;
-  background-color: lightgreen;
+  z-index:1;
+ 
 }
 
 /* Position the "next button" to the right */
@@ -49,29 +61,99 @@ img {vertical-align: middle;}
 }
 .slideshow-container img{
     height:400px;
+    opacity: 0.4;
+}
+#banner-text{
+    
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color:white;
+  text-align: center;
+  font-weight:bolder;
+  
+  font-size: 24px; /* Adjust the size as needed */
+    
+    z-index: 1;
+    width:700px;
+  
+  
+}
+#banner-text h1{
+  font-size: 60px;;
+}
+
+#banner-text button{
+    background-color:#F0F0F0;
+    border-radius:5px;
+    padding:10px;
+}
+nav{
+  width:80%;
+  
+  display:flex;
+  gap:100px;
+  margin:70px auto auto auto;
+  vertical-align: top;
+  align-items: center;
+  justify-content: center;
+}
+nav ul{
+  display: flex;
+  vertical-align: top;
+  list-style-type: none;
+  gap:10px;
+  margin-left:auto;
+  
+  justify-content: space-between;
+}
+nav a{
+  display: flex;
+  font-size:30px;
+  
+  justify-content: center;
 }
 </style>
 <body>
 
-    
-
+  <nav id="nav">
+   
+      <a>Nostra</a>
+  
+    <ul>
+      <li>Home</li>
+      <li>New Arrival</li>
+      <li>Most Wanted</li>
+      <li>Collections</li>
+      <li>Contact Us</li>
+    </ul>
+    </nav>
 
 <div class="slideshow-container">
+    <div id="banner-text">
+        <h1>Level Up your Style with our</h1>
+        <p>Summer Collections</p>
+        <p><button>Shop Now &#x2192;</button></p>
+    </div>
    
   <div class="mySlides1">
-    <img src="hero1.jpg" style="width:100%; opacity:50%; ">
+   
+    <img src="images/hero1.jpg" style="width:100%;">
   </div>
 
   <div class="mySlides1">
-    <img src="hero2.jpg" style="width:100%; opacity:50%;">
+    <img src="images/hero2.jpg" style="width:100%; ">
   </div>
 
   <div class="mySlides1">
-    <img src="hero3.jpg" style="width:100%; opacity:50%;">
+    <img src="images/hero3.jpg" style="width:100%; ">
   </div>
 
-  <a class="prev" onclick="plusSlides(-1, 0)">&#10094;</a>
-  <a class="next" onclick="plusSlides(1, 0)">&#10095;</a>
+  <a class="prev" onclick="plusSlides(-1, 0)">
+    <i class="fa-solid fa-angle-left" style="color: #f9fafb;"></i>
+  </a>
+  <a class="next" onclick="plusSlides(1, 0)"> <i class="fa-solid fa-angle-right" style="color: #fcfcfd;"></i></a>
 </div>
 
 
@@ -114,6 +196,7 @@ img {vertical-align: middle;}
             closeButton.innerHTML = '&times;';
             closeButton.onclick = function() {
                 document.body.removeChild(bar);
+                document.getElementById('nav').style.marginTop = '0';
             };
 
             // Inject the bar and close button:
