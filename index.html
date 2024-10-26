@@ -1,244 +1,824 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Ultra&display=swap" rel="stylesheet">
-    <title>Floating Message Bar</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Ultra&display=swap" rel="stylesheet">
+  <title>Floating Message Bar</title>
 </head>
 <style>
-    body{
-        font-family: "Oswald", sans-serif;
+  body {
+    font-family: "Oswald", sans-serif;
 
-    }
-    *{
-      margin:0;
-      padding:0;
-    }
-    * {box-sizing: border-box}
-.mySlides1, .mySlides2 {display: none}
-img {vertical-align: middle;}
+  }
 
-/* Slideshow container */
-.slideshow-container {
-  width: 80%;
-  position: relative;
- 
-  margin: auto;
-}
+  * {
+    margin: 0;
+    padding: 0;
+  }
 
-/* Next & previous buttons */
-.prev, .next {
-  cursor: pointer;
-  position: absolute;
-  top: 30%;
-  width: auto;
-  padding: 16px;
-  margin-top: -22px;
-  color: white;
-  font-weight: bold;
-  font-size: 80px;
-  transition: transform 0.5s ease-in-out;
-  border-radius: 0 3px 3px 0;
-  user-select: none;
-  z-index:1;
- 
-}
+  * {
+    box-sizing: border-box
+  }
 
-/* Position the "next button" to the right */
-.next {
-  right: 0;
-  border-radius: 3px 0 0 3px;
-}
+  .mySlides1,
+  .mySlides2 {
+    display: none
+  }
 
-/* On hover, add a grey background color */
-.prev:hover, .next:hover {
-  background-color: #f1f1f1;
-  color: black;
-}
-.slideshow-container img{
-    height:400px;
-    opacity: 0.4;
-}
-#banner-text{
-    
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color:white;
-  text-align: center;
-  font-weight:bolder;
-  
-  font-size: 24px; /* Adjust the size as needed */
-    
+  img {
+    vertical-align: middle;
+  }
+
+  /* Slideshow container */
+  .slideshow-container {
+    width: 80%;
+    position: relative;
+
+    margin: auto;
+  }
+
+  /* Next & previous buttons */
+  .prev,
+  .next {
+    cursor: pointer;
+    position: absolute;
+    top: 30%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 80px;
+
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+
+
+  }
+
+  .prev:hover,
+  .next:hover {
+    cursor: pointer;
+    display: block;
+
+    color: white;
+    font-weight: bold;
+    font-size: 80px;
+
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+
+  }
+
+  /* Position the "next button" to the right */
+  .next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+  }
+
+  /* On hover, add a grey background color */
+
+
+
+
+  .slideshow-container img {
+    height: 400px;
+
+  }
+
+  #banner-text {
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+
+    font-weight: bolder;
+
+    font-size: 24px;
+    /* Adjust the size as needed */
+
+
+    width: 70%;
+
+
+  }
+
+  #banner-text h1 {
+    font-size: 60px;
+    ;
+  }
+
+  #banner-text button {
+    background-color: #F0F0F0;
+    border-radius: 5px;
+    padding: 10px;
+  }
+
+  nav {
+    width: 80%;
+
+    display: flex;
+    gap: 100px;
+    margin: 70px auto auto auto;
+    vertical-align: top;
+    align-items: center;
+    justify-content: center;
+
+  }
+
+  nav ul {
+    display: flex;
+    vertical-align: top;
+    list-style-type: none;
+    gap: 20px;
+    margin-left: auto;
+    font-size: 22px;
+    justify-content: space-between;
+  }
+
+  nav a {
+    display: flex;
+    font-size: 22px;
+
+    justify-content: center;
+    vertical-align: top;
+  }
+
+  nav a:visited {
+    color: black;
+    text-decoration: none;
+  }
+
+  nav a,
+  a:hover,
+  a:active,
+  a:visited,
+  a:focus {
+    display: flex;
+    text-decoration: none;
+    font-size: 22px;
+    justify-content: center;
+    align-items: center;
+    vertical-align: top;
+  }
+
+
+  .sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
     z-index: 1;
-    width:700px;
-  
-  
-}
-#banner-text h1{
-  font-size: 60px;;
-}
+    top: 50px;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
 
-#banner-text button{
-    background-color:#F0F0F0;
-    border-radius:5px;
-    padding:10px;
-}
-nav{
-  width:80%;
-  
-  display:flex;
-  gap:100px;
-  margin:70px auto auto auto;
-  vertical-align: top;
-  align-items: center;
-  justify-content: center;
-}
-nav ul{
-  display: flex;
-  vertical-align: top;
-  list-style-type: none;
-  gap:10px;
-  margin-left:auto;
-  
-  justify-content: space-between;
-}
-nav a{
-  display: flex;
-  font-size:30px;
-  
-  justify-content: center;
-}
+  }
+
+  .sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+  }
+
+  .sidenav a:hover {
+    color: #f1f1f1;
+  }
+
+  .sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+
+  @media screen and (max-height: 450px) {
+    .sidenav {
+      padding-top: 15px;
+    }
+
+    .sidenav a {
+      font-size: 18px;
+    }
+  }
+
+  .brand {
+    margin: auto;
+    width: 80%;
+  }
+
+  @media screen and (max-width: 800px) {
+    #new_arrivals_sections ul {
+      display: flex;
+
+
+    }
+
+    #new_arrivals_sections li {
+      display: flex;
+      width: 50%;
+    }
+
+  }
+
+
+
+  .brand ul {
+    display: flex;
+
+    list-style-type: none;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+
+  }
+
+  .brand img {
+    display: flex;
+
+    width: 40%;
+
+  }
+
+  .brand li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 20%;
+
+
+  }
+
+  .customer {
+    display: flex;
+    width: 80%;
+    margin: 10px auto auto auto;
+    padding: 10px;
+    vertical-align: top;
+  }
+
+  .customer h1 {
+    width: 300px;
+    text-wrap: wrap;
+    padding: 10px;
+  }
+
+  .customer p {
+    margin-left: auto;
+    font-size: 20px;
+    font-weight: 200;
+    padding: 10px;
+  }
+
+
+  .product_quality {
+    display: flex;
+
+    padding: 10px;
+    width: 80%;
+    margin: auto;
+
+  }
+
+  .product_quality ul {
+    display: flex;
+    list-style-type: none;
+    gap: 10px;
+  }
+
+  .product_quality li {
+    background-color: rgba(220, 214, 214, 0.495);
+    padding: 5px;
+    border-radius: 5px;
+  }
+
+  .product_quality img {
+    width: 40px;
+  }
+
+  #new_arrivals_sections {
+
+    width: 80%;
+    margin: auto;
+  }
+
+  #new_arrivals_sections ul {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+
+    gap: 10px;
+    vertical-align: top;
+
+  }
+
+  #new_arrivals_sections li {
+    position: relative;
+    display: flex;
+    vertical-align: top;
+    list-style-type: none;
+    width: 25%;
+    height: 200px;
+
+
+  }
+
+  #new_arrivals_sections img {
+    position: relative;
+    opacity: 0.5;
+    width: 100%;
+
+
+  }
+
+  #new_arrivals_sections img:hover {
+    opacity: 1;
+  }
+
+  #new_arrivals_sections button {
+    position: absolute;
+    top: 70%;
+    left: 30%;
+    padding: 5px;
+    border-radius: 6px;
+    border: none;
+    background-color: rgb(210, 204, 204);
+    z-index: 1;
+  }
+
+
+
+  .scroll-container {
+    display: flex;
+    overflow-x: hidden;
+    /* Hide the horizontal scrollbar */
+    width: 100%;
+    /* Width of the visible container */
+    margin: 10px auto;
+    /* Center the container */
+    white-space: nowrap;
+    /* Prevent line breaks, keep everything in a single row */
+
+    align-content: flex-start;
+    justify-content: space-between;
+
+  }
+
+  .scroll-container img {
+
+    width: 20%;
+    height: 200px;
+    margin-right: 10px;
+    transition: transform 0.2s ease;
+    /* Smooth zoom on hover */
+  }
+
+  .scroll-container img:hover {
+    transform: scale(1.05);
+    /* Zoom slightly when hovering over individual images */
+  }
+
+  .most_wanted {
+    width: 80%;
+    margin: auto;
+  }
+
+  .footer_banner {
+    background-color: rgb(84, 81, 81);
+    width: 100%;
+
+    display: flex;
+  }
+
+  .footer_banner img {
+    width: 40%;
+    margin-right: auto;
+    height: 350px;
+    padding: 10px;
+  }
+
+  .footer_banner_text {
+    display: flex;
+    flex-direction: column;
+    margin: auto 200px auto 50px;
+    color: white;
+    width: 400px;
+    text-align: center;
+    padding: 8px;
+  }
+
+  .footer_banner_text p {
+    font-size: 30px;
+  }
+
+  .footer_banner_text button {
+    width: 120px;
+    margin: auto;
+    padding: 10px;
+  }
+
+  .Newletter_section {
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    padding: 10px;
+  }
+
+  .Newletter_section p {
+    font-size: 25px;
+    font-weight: light;
+    margin-bottom: 10px;
+    ;
+  }
+
+  .Newletter_section input {
+    display: block;
+    padding: 10px;
+    margin: auto auto auto auto;
+    width: 80%;
+    text-align: center;
+
+  }
+
+  .Newletter_section button {
+    background-color: black;
+    color: white;
+    padding: 5px;
+    margin-top: 10px;
+    border-radius: 5px;
+  }
+
+  .footer {
+    background-color: black;
+    padding: 10px;
+    margin: auto;
+    color: white;
+
+  }
+
+  .social {
+    display: flex;
+  }
+
+  .social img {
+    width: 50px;
+    height: 50px;
+  }
+
+  @media screen and (max-width: 600px) {
+    nav ul {
+      display: none;
+
+    }
+
+    .nav_title {
+      margin-right: auto;
+    }
+
+    .menu_bar {
+      display: block;
+      height: 50px;
+      width: 50px;
+    }
+
+  }
+
+  @media screen and (min-width:600px) {
+    .menu_bar {
+      display: none;
+    }
+  }
 </style>
+
 <body>
 
   <nav id="nav">
-   
-      <a>Nostra</a>
-  
+
+    <a class="nav_title">Nostra</a>
+    <a><img onclick="openNav()" class="menu_bar" src="images/menu.png"></a>
     <ul>
-      <li>Home</li>
-      <li>New Arrival</li>
-      <li>Most Wanted</li>
-      <li>Collections</li>
-      <li>Contact Us</li>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html#new_arrivals_sections">New Arrival</a></li>
+      <li><a href="index.html#most_wanted">Most Wanted</a></li>
+      <li><a href="collection.html">Collections</a></li>
+      <li><a href="#">Contact Us</a></li>
     </ul>
-    </nav>
 
-<div class="slideshow-container">
+  </nav>
+
+  <div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="#">Home</a>
+    <a href="index.html#new_arrivals_sections">New Arrival</a>
+    <a href="index.html#most_wanted">Most Wanted</a>
+    <a href="collection.html">Collections</a>
+    <a href="contact.html">Contact Us</a>
+  </div>
+
+  <div class="slideshow-container">
     <div id="banner-text">
-        <h1>Level Up your Style with our</h1>
-        <p>Summer Collections</p>
-        <p><button>Shop Now &#x2192;</button></p>
+      <h1>Level Up your Style with our</h1>
+      <p>Summer Collections</p>
+      <p><button>Shop Now &#x2192;</button></p>
     </div>
-   
-  <div class="mySlides1">
-   
-    <img src="images/hero1.jpg" style="width:100%;">
+
+    <div class="mySlides1">
+
+      <img src="images/hero1.jpg" style="width:100%;">
+    </div>
+
+    <div class="mySlides1">
+      <img src="images/hero2.jpg" style="width:100%; ">
+    </div>
+
+    <div class="mySlides1">
+      <img src="images/hero3.jpg" style="width:100%; ">
+    </div>
+
+    <a class="prev" onclick="plusSlides(-1, 0)">
+      <i class="fa-solid fa-angle-left" style="color: #f9fafb;"></i>
+    </a>
+    <a class="next" onclick="plusSlides(1, 0)"> <i class="fa-solid fa-angle-right" style="color: #fcfcfd;"></i></a>
   </div>
 
-  <div class="mySlides1">
-    <img src="images/hero2.jpg" style="width:100%; ">
+  <div class="brand">
+    <h3>Brands</h3>
+    <ul>
+      <li><img src="images/behance-logo.png">
+        <p>Puma</p>
+      </li>
+      <li><img src="images/adidas.png">
+        <p>Adidas</p>
+      </li>
+      <li><img src="images/simple.png">
+        <p>Simple</p>
+      </li>
+      <li><img src="images/leaves.png">
+        <p>Leaves</p>
+      </li>
+      <li><img src="images/behance-logo.png">
+        <p>Behance</p>
+      </li>
+      <li><img src="images/twitch.png">
+        <p>Twitch</p>
+      </li>
+      <li><img src="images/leaves.png">
+        <p>Leaves</p>
+      </li>
+
+
+    </ul>
+  </div>
+  <div class="customer">
+    <h1>We provide Best Customer Experience</h1>
+    <p>|| We ensure that our customer have the best shopping experience</p>
   </div>
 
-  <div class="mySlides1">
-    <img src="images/hero3.jpg" style="width:100%; ">
+  <div class="product_quality">
+    <ul>
+      <li><img src="images/check-mark.png">
+        <p>Original Producs</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis ipsum perferendis quas commodi
+          !</p>
+      </li>
+
+      <li><img src="images/happy.png">
+        <p>Customer Satifaction</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis ipsum perferendis quas commodi
+          !</p>
+      </li>
+
+      <li><img src="images/clean.png">
+        <p>Arrivals</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis ipsum perferendis quas commodi
+          !</p>
+      </li>
+
+      <li><img src="images/fast-delivery.png">
+        <p>Fast Delivery</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis ipsum perferendis quas commodi
+          !</p>
+      </li>
+    </ul>
   </div>
 
-  <a class="prev" onclick="plusSlides(-1, 0)">
-    <i class="fa-solid fa-angle-left" style="color: #f9fafb;"></i>
-  </a>
-  <a class="next" onclick="plusSlides(1, 0)"> <i class="fa-solid fa-angle-right" style="color: #fcfcfd;"></i></a>
-</div>
+  <div id="new_arrivals_sections">
+    <h3>New Arrivals</h3>
+    <ul>
+      <li>
+        <img src="images/download (1).jpeg">
+        <button>Shop Now &#x2192;</button>
+      </li>
+      <li>
+        <img src="images/download.jpeg">
+        <button>Shop Now &#x2192;</button>
+      </li>
+      <li>
+        <img src="images/images.jpeg">
+        <button>Shop Now &#x2192;</button>
+      </li>
+      <li>
+        <img src="images/images (1).jpeg">
+        <button>Shop Now &#x2192;</button>
+      </li>
+    </ul>
+
+  </div>
+  <div class="most_wanted" id="most_wanted">
+    <h1>Most Wanted Section</h1>
+    <div class="scroll-container" id="scroll-container">
+
+      <img src="images/download (1).jpeg" alt="Image 1">
+      <img src="images/download.jpeg" alt="Image 2">
+      <img src="images/images (1).jpeg" alt="Image 3">
+      <img src="images/images (2).jpeg" alt="Image 4">
+      <img src="images/images.jpeg" alt="Image 5">
+      <img src="images/download.jpeg" alt="Image 6">
+      <img src="images/download (1).jpeg" alt="Image 7">
+
+      <img src="images/download.jpeg" alt="Image 2">
+      <img src="images/images (1).jpeg" alt="Image 3">
+      <img src="images/images (2).jpeg" alt="Image 4">
+      <img src="images/images.jpeg" alt="Image 5">
+      <img src="images/download.jpeg" alt="Image 6">
+      <img src="images/download (1).jpeg" alt="Image 7">
+    </div>
+    <div class="footer_banner">
+      <img src="images/men_group.jpeg">
+      <div class="footer_banner_text">
+        <h1>Limited Offer</h1>
+        <p>35%off for the first 30 customer</p>
+        <button>Shop Now &#x2192; </button>
+        </p>
+      </div>
+    </div>
 
 
+    <div class="Newletter_section">
+      <h1>Join Our NewsLetter</h1>
+      <p>SignUp for our email newspaper to get exculsive discounts,updates and more</p>
+      <input type="text">
+      <button>Subscribe &#x2192;</button>
+    </div>
+
+    <div class="footer">
+      <h1>Nostra</h1>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit, non.</p>
+      <div class="social">
+        <img src="images/twitter_black.png">
+        <img src="images/social.png">
+        <img src="images/twitter_black.png">
+      </div>
+      <p>@2024 Nostra.com</p>
+    </div>
 </body>
 
-    <script>
-        function MessageBar() {
-            // CSS styling:
-            var css = function(el, s) {
-                for (var i in s) {
-                    el.style[i] = s[i];
-                }
-                return el;
-            },
-            // Create the message bar:
-            bar = css(document.createElement('div'), {
-                top: '0px',
-                right: '20px',
-                position: 'fixed',
-                background: 'black',
-                padding: '15px',
-                textAlign: 'center',
-                boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)',
-                borderRadius: '8px',
-                width: '90%',
-                zIndex: '1000'
-            }),
-            // Create the close button:
-            closeButton = css(document.createElement('span'), {
-                position: 'absolute',
-                top: '0px',
-                right: '150px',
-                cursor: 'pointer',
-                fontWeight: 'bold',
-                color:'white',
-                fontSize: '30px'
-            });
+<script>
+  function MessageBar() {
+    // CSS styling:
+    var css = function (el, s) {
+      for (var i in s) {
+        el.style[i] = s[i];
+      }
+      return el;
+    },
+      // Create the message bar:
+      bar = css(document.createElement('div'), {
+        top: '0px',
+        right: '20px',
+        position: 'fixed',
+        background: 'black',
+        padding: '15px',
+        textAlign: 'center',
+        boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)',
+        borderRadius: '8px',
+        width: '90%',
+        zIndex: '1000'
+      }),
+      // Create the close button:
+      closeButton = css(document.createElement('span'), {
+        position: 'absolute',
+        top: '0px',
+        right: '150px',
+        cursor: 'pointer',
+        fontWeight: 'bold',
+        color: 'white',
+        fontSize: '30px'
+      });
 
-            // Set the close button text to "×" (multiplication symbol):
-            closeButton.innerHTML = '&times;';
-            closeButton.onclick = function() {
-                document.body.removeChild(bar);
-                document.getElementById('nav').style.marginTop = '0';
-            };
+    // Set the close button text to "×" (multiplication symbol):
+    closeButton.innerHTML = '&times;';
+    closeButton.onclick = function () {
+      document.body.removeChild(bar);
+      document.getElementById('nav').style.marginTop = '0';
+      document.getElementById('mySidenav').style.top = '0';
+    };
 
-            // Inject the bar and close button:
-            bar.appendChild(closeButton);
-            document.body.appendChild(bar);
+    // Inject the bar and close button:
+    bar.appendChild(closeButton);
+    document.body.appendChild(bar);
 
-            // Provide a way to set the message:
-            this.setMessage = function(message) {
-                var messageDiv = css(document.createElement('div'), {
-                    color: 'white'
-                });
-                messageDiv.appendChild(document.createTextNode(message));
-                bar.appendChild(messageDiv);
-            };
-        }
-
-        // Create an instance of the message bar and display a message
-        var myMessageBar = new MessageBar();
-        myMessageBar.setMessage('Sign Up and Get 20% OFF for your first Order');
-
-
-        let slideIndex = [1,1];
-let slideId = ["mySlides1", "mySlides2"]
-showSlides(1, 0);
-showSlides(1, 1);
-
-function plusSlides(n, no) {
-  showSlides(slideIndex[no] += n, no);
-}
-
-function showSlides(n, no) {
-  let i;
-  let x = document.getElementsByClassName(slideId[no]);
-  if (n > x.length) {slideIndex[no] = 1}    
-  if (n < 1) {slideIndex[no] = x.length}
-  for (i = 0; i < x.length; i++) {
-     x[i].style.display = "none";  
+    // Provide a way to set the message:
+    this.setMessage = function (message) {
+      var messageDiv = css(document.createElement('div'), {
+        color: 'white'
+      });
+      messageDiv.appendChild(document.createTextNode(message));
+      bar.appendChild(messageDiv);
+    };
   }
-  x[slideIndex[no]-1].style.display = "block";  
-}
-    </script>
+
+  // Create an instance of the message bar and display a message
+  var myMessageBar = new MessageBar();
+  myMessageBar.setMessage('Sign Up and Get 20% OFF for your first Order');
+
+
+  let slideIndex = 1;
+  showSlides(slideIndex);
+
+  function plusSlides(n) {
+    showSlides(slideIndex += n);
+  }
+
+  function showSlides(n) {
+    let i;
+    let x = document.getElementsByClassName("mySlides1"); // Assuming one slideshow only
+    if (x.length === 0) return; // Check if x has elements
+
+    if (n > x.length) { slideIndex = 1; }
+    if (n < 1) { slideIndex = x.length; }
+
+    for (i = 0; i < x.length; i++) {
+      x[i].style.display = "none";
+    }
+    x[slideIndex - 1].style.display = "block";
+  }
+
+
+  const scrollContainer = document.getElementById('scroll-container');
+  let scrollSpeed = 2; // Speed of scrolling
+  let scrollDirection = 0; // Variable to control direction of scroll (0 = stop, 1 = right, -1 = left)
+  let scrollInterval; // Interval for smooth scrolling
+
+  // Function to scroll based on the direction
+  function scrollImages() {
+    if (scrollDirection !== 0) {
+      scrollContainer.scrollLeft += scrollSpeed * scrollDirection;
+    }
+  }
+
+  // Start scrolling when mouse moves to the edges
+  scrollContainer.addEventListener('mousemove', (e) => {
+    const containerWidth = scrollContainer.offsetWidth;
+    const mouseX = e.clientX - scrollContainer.getBoundingClientRect().left;
+
+    // Determine scroll direction based on mouse position
+    if (mouseX > containerWidth * 0.8) {
+      scrollDirection = 1; // Scroll to the right
+    } else if (mouseX < containerWidth * 0.2) {
+      scrollDirection = -1; // Scroll to the left
+    } else {
+      scrollDirection = 0; // Stop scrolling
+    }
+  });
+
+  // Stop scrolling when the mouse leaves the container
+  scrollContainer.addEventListener('mouseleave', () => {
+    scrollDirection = 0;
+  });
+
+  // Interval for smooth continuous scrolling
+  scrollInterval = setInterval(scrollImages, 20);
+
+  // Creating SideNav Bar for Mobile View
+  function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+  }
+
+  function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+  }
+
+
+
+
+</script>
 
 </html>
-
-
