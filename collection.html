@@ -133,7 +133,7 @@ nav a:visited{
   color:black;
   text-decoration: none;
 }
-nav a, nav a:hover, nav a:active, nav a:visited, nav a:focus {
+nav a, a:hover, a:active, a:visited, a:focus {
   display: flex;
     text-decoration:none;
     font-size:22px;
@@ -336,8 +336,8 @@ nav a, nav a:hover, nav a:active, nav a:visited, nav a:focus {
         <div class="filter-container">
           <h2>Clothing Items</h2>
           <div>
-            <strong>Occasion:</strong>
-            <div class="filter-group" id="occasion-filters">
+            <strong>Season:</strong>
+            <div class="filter-group" id="season-filters">
               <label><input type="checkbox" value="Summer"> Summer</label>
               <label><input type="checkbox" value="Winter"> Winter</label>
               <label><input type="checkbox" value="Spring"> Spring</label>
@@ -353,23 +353,33 @@ nav a, nav a:hover, nav a:active, nav a:visited, nav a:focus {
               <label><input type="checkbox" value="Yellow"> Yellow</label>
             </div>
           </div>
+
+          <div>
+            <strong>Occasion:</strong>
+            <div class="filter-group" id="occasion-filters">
+              <label><input type="checkbox" value="Party"> Party</label>
+              <label><input type="checkbox" value="Office"> Office</label>
+              <label><input type="checkbox" value="Beach"> Beach</label>
+             
+            </div>
+          </div>
         </div>
         <div class="vl"></div>
         <div class="items-container">
-          <div class="item Summer Red"><img src = "images/summer1.jpeg"></div>
-          <div class="item Summer Black"><img src = "images/summer2.jpeg"></div>
-          <div class="item Spring Red"><img src = "images/red.jpeg"></div>
-          <div class="item Summer Red"><img src = "images/red2.jpeg"></div>
-          <div class="item Winter Red"><img src = "images/red1.jpeg"></div>
-          <div class="item Spring Black"><img src = "images/party2.jpeg"></div>
-          <div class="item Summer Yellow"><img src = "images/party3.jpeg"></div>
-          <div class="item Summer Red"><img src = "images/summer1.jpeg"></div>
-          <div class="item Summer Black"><img src = "images/summer2.jpeg"></div>
-          <div class="item Spring Yellow"><img src = "images/red.jpeg"></div>
-          <div class="item Summer Green"><img src = "images/red2.jpeg"></div>
-          <div class="item Winter Red"><img src = "images/red1.jpeg"></div>
-          <div class="item Spring Black"><img src = "images/party2.jpeg"></div>
-          <div class="item Summer Yellow"><img src = "images/party3.jpeg"></div>
+          <div class="item Summer Red Beach"><img src ="images/red_beach_summer.jpeg"></div>
+          <div class="item Summer Red Office"><img src = "images/red_office_summer.jpeg"></div>
+          <div class="item Summer Red Party"><img src = "images/red_party_summer.jpeg"></div>
+          <div class="item Winter Green Beach"><img src = "images/green winter beach.jpeg"></div>
+          <div class="item Winter Green Party"><img src = "images/green_winter_party.jpeg"></div>
+          <div class="item Spring Black Beach"><img src = "images/black spring beach.jpeg"></div>
+          <div class="item Summer Yellow Beach"><img src = "images/yello_summer_beach.jpeg"></div>
+          <div class="item Spring Yellow Office"><img src = "images/yellow office spring.jpeg"></div>
+          <div class="item Spring Yellow Beach"><img src = "images/yellow_spring_beach.jpeg"></div>
+          <div class="item Spring Black Beach"><img src = "images/black spring beach.jpeg"></div>
+          <div class="item Summer Black Beach"><img src = "images/black_summer_beach.jpeg"></div>
+          <div class="item Winter Red Office"><img src = "images/red1.jpeg"></div>
+          <div class="item Spring Black Party"><img src = "images/party2.jpeg"></div>
+         
         </div>
         </div>
 
@@ -397,7 +407,8 @@ nav a, nav a:hover, nav a:active, nav a:visited, nav a:focus {
           // Store active filters
           const activeFilters = {
             occasion: [],
-            color: []
+            color: [],
+            season:[]
           };
         
           // Add event listeners to checkboxes
@@ -410,6 +421,12 @@ nav a, nav a:hover, nav a:active, nav a:visited, nav a:focus {
           document.querySelectorAll('#color-filters input[type="checkbox"]').forEach(checkbox => {
             checkbox.addEventListener('change', function() {
               updateFilter('color', this.value, this.checked);
+            });
+          });
+
+          document.querySelectorAll('#season-filters input[type="checkbox"]').forEach(checkbox => {
+            checkbox.addEventListener('change', function() {
+              updateFilter('season', this.value, this.checked);
             });
           });
         
@@ -429,8 +446,9 @@ nav a, nav a:hover, nav a:active, nav a:visited, nav a:focus {
               const itemClasses = item.className.split(" ");
               const matchesOccasion = activeFilters.occasion.length === 0 || activeFilters.occasion.some(filter => itemClasses.includes(filter));
               const matchesColor = activeFilters.color.length === 0 || activeFilters.color.some(filter => itemClasses.includes(filter));
+              const matchesSeason = activeFilters.season.length === 0 || activeFilters.season.some(filter => itemClasses.includes(filter));
         
-              if (matchesOccasion && matchesColor) {
+              if (matchesOccasion && matchesColor && matchesSeason) {
                 item.classList.add('show');
               } else {
                 item.classList.remove('show');
